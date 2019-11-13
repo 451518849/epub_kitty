@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
               Directory appDocDir = await getApplicationDocumentsDirectory();
               print(appDocDir.path);
               String bookPath = '${appDocDir.path}/3.epub';
-              EpubReader.open('电子书',bookPath, 3);
+              EpubReader.open('电子书',bookPath, 0);
             },
             child: Container(
               child: Text('open epub'),
