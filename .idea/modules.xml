@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/epub_reader.iml" filepath="$PROJECT_DIR$/epub_reader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/epub_reader_android.iml" filepath="$PROJECT_DIR$/android/epub_reader_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/epub_reader_example_android.iml" filepath="$PROJECT_DIR$/example/android/epub_reader_example_android.iml" />
+    </modules>
+  </component>
+</project>
