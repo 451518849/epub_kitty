@@ -1,14 +1,24 @@
 # epub_reader
 
-A new flutter plugin project.
+![](https://img.shields.io/badge/build-passing-brightgreen)
+![](https://img.shields.io/badge/version-0.0.1-orange)
+![](https://img.shields.io/badge/platform-flutter-lightgrey)
 
-## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+![](1.jpeg)
+![](2.jpeg)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
+epub_reader是款epub电子书阅读器，是对[folioreader](https://folioreader.github.io/FolioReaderKit/)这个框架的封装。
+
+
+
+## 一行代码即可
+   
+	   /**
+	   * @title 电子书标题
+	   * @bookPath 电子书文档路径
+	   * @limitPages 限制阅读页数，为0表示不限制页数
+	   */
+	EpubReader.open('title','bookPath', limitPages);
+	
