@@ -34,8 +34,10 @@ class _MyAppState extends State<MyApp> {
             onTap: () async {
               Directory appDocDir = await getApplicationDocumentsDirectory();
               print(appDocDir.path);
-              String bookPath = '${appDocDir.path}/3.epub';
-              EpubReader.open("file:///android_asset/TheSilverChair.epub");
+
+              String iosBookPath = '${appDocDir.path}/3.epub';
+              String androidBookPath = 'file:///android_asset/PhysicsSyllabus.epub';
+              EpubReader.open(androidBookPath);
 
               pageChannel.receiveBroadcastStream().listen((Object event) {
                 print('page:$event');

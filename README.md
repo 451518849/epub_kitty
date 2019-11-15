@@ -9,16 +9,18 @@
 ![](2.jpeg)
 
 
-epub_reader是款epub电子书阅读器，是对[folioreader](https://folioreader.github.io/FolioReaderKit/)这个框架的封装。
+epub_reader是款epub电子书阅读器，是对开源框架[folioreader](https://folioreader.github.io/FolioReaderKit/)的封装。
 
 
 
 ## 一行代码即可
    
 	   /**
-	   * @title 电子书标题
 	   * @bookPath 电子书文档路径
-	   * @limitPages 限制阅读页数，为0表示不限制页数
 	   */
-	EpubReader.open('title','bookPath', limitPages);
+	EpubReader.open('bookPath');
+	
+	// page channel 用来监听当前页数（仅限ios端）
+	  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
+
 	
