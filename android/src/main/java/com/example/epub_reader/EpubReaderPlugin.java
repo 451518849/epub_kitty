@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
@@ -36,12 +37,14 @@ public class EpubReaderPlugin implements MethodCallHandler{
   private Reader reader;
   static private Activity activity;
   static private Context context;
+  static BinaryMessenger messenger;
 
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
 
     context = registrar.context();
     activity = registrar.activity();
+    messenger = registrar.messenger();
 
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "epub_reader");
     channel.setMethodCallHandler(new EpubReaderPlugin());
@@ -57,11 +60,11 @@ public class EpubReaderPlugin implements MethodCallHandler{
       Map<String,Object> arguments = (Map<String, Object>) call.arguments;
       String bookPath = arguments.get("bookPath").toString();
 
-      System.out.println("bookPath:" + bookPath);
-
-      reader = new Reader(context);
+      reader = new Reader(context,messenger);
       reader.open(bookPath);
 
+    }else if(call.method.equals("close")){
+      reader.close();
     }
 
     else {

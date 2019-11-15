@@ -15,32 +15,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await EpubReader.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
   }
 
   @override
@@ -56,7 +35,11 @@ class _MyAppState extends State<MyApp> {
               Directory appDocDir = await getApplicationDocumentsDirectory();
               print(appDocDir.path);
               String bookPath = '${appDocDir.path}/3.epub';
-              EpubReader.open('电子书',bookPath, 0);
+              EpubReader.open("file:///android_asset/TheSilverChair.epub");
+
+              pageChannel.receiveBroadcastStream().listen((Object event) {
+                print('page:$event');
+              }, onError: null);
             },
             child: Container(
               child: Text('open epub'),

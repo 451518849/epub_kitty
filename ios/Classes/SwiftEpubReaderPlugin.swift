@@ -3,44 +3,61 @@ import UIKit
 import RealmSwift
 import Realm
 
-var pageResult: FlutterResult? = nil
 
 
-public class SwiftEpubReaderPlugin: NSObject, FlutterPlugin,FolioReaderPageDelegate {
-    var limitPage = 0
+public class SwiftEpubReaderPlugin: NSObject, FlutterPlugin,FolioReaderPageDelegate,FlutterStreamHandler {
+
     let folioReader = FolioReader()
-    var bookTitle = ""
+    static var pageResult: FlutterResult? = nil
+    static var pageChannel:FlutterEventChannel? = nil
     
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "epub_reader", binaryMessenger: registrar.messenger())
     let instance = SwiftEpubReaderPlugin()
+    
+    pageChannel = FlutterEventChannel.init(name: "com.xiaofwang.epub_reader/page",
+                                binaryMessenger: registrar.messenger());
     
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     
+
     switch call.method {
     case "open":
+        setPageHandler()
         let arguments = call.arguments as![String:Any]
-        pageResult = result
-        bookTitle = arguments["title"] as! String
         let bookPath = arguments["bookPath"] as! String
-
-        self.limitPage = arguments["limitPage"] as! Int
-        
-//        let bookPath = Bundle.main.path(forResource: "2", ofType: "epub")!
         self.open(epubPath: bookPath)
+
+        break
+    case "close":
+        self.close()
         break
     default:
         break
     }
 //    result("iOS " + UIDevice.current.systemVersion)
   }
-
     
-    private func readerConfiguration() -> FolioReaderConfig {
-            let config = FolioReaderConfig(withIdentifier: "READER_ONE")
+    private func setPageHandler(){
+        SwiftEpubReaderPlugin.pageChannel?.setStreamHandler(self)
+
+    }
+    
+    public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        SwiftEpubReaderPlugin.pageResult = events
+        return nil
+    }
+
+    public func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        return nil
+    }
+    
+    
+    private func readerConfiguration(Identifier: String) -> FolioReaderConfig {
+            let config = FolioReaderConfig(withIdentifier: Identifier)
             config.shouldHideNavigationOnTap = true
             config.scrollDirection = FolioReaderScrollDirection.vertical
             config.enableTTS = false
@@ -67,21 +84,28 @@ public class SwiftEpubReaderPlugin: NSObject, FlutterPlugin,FolioReaderPageDeleg
             return
         }
 
+        let Identifier = epubPath.split(separator: "/").last!
         print("epubPath:"+epubPath)
         let readerVc = UIApplication.shared.keyWindow!.rootViewController ?? UIViewController()
-
-        let readerConfiguration = self.readerConfiguration()
+        
+        let readerConfiguration = self.readerConfiguration(Identifier: String(Identifier))
         
         folioReader.presentReader(parentViewController: readerVc, withEpubPath: epubPath, andConfig: readerConfiguration, shouldRemoveEpub: false)
         folioReader.readerCenter?.pageDelegate = self
     }
 
     public func pageWillLoad(_ page: FolioReaderPage) {
-        print("page:" + String(page.pageNumber))
-        if self.limitPage != 0 && self.limitPage == page.pageNumber{
-            folioReader.readerContainer?.dismiss(animated: true, completion: nil)
-            folioReader.readerContainer?.dismiss()
+        
+        print("page.pageNumber:"+String(page.pageNumber))
+
+        if (SwiftEpubReaderPlugin.pageResult != nil){
+            SwiftEpubReaderPlugin.pageResult!(String(page.pageNumber))
         }
+
+    }
+    
+    private func close(){
+        folioReader.readerContainer?.dismiss(animated: true, completion: nil)
     }
 
 }

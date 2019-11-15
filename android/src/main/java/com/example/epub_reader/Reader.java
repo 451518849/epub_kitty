@@ -22,12 +22,21 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.flutter.plugin.common.BinaryMessenger;
+import io.flutter.plugin.common.EventChannel;
+import io.flutter.plugin.common.MethodChannel;
+
 public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioReader.OnClosedListener{
 
     public FolioReader folioReader;
     private Context context;
+    public MethodChannel.Result result;
+    private EventChannel.EventSink pageEventSink;
+    private BinaryMessenger messenger;
 
-    Reader(Context context){
+    private static final String PAGE_CHANNEL = "com.xiaofwang.epub_reader/page";
+
+    Reader(Context context, BinaryMessenger messenger){
 
         getHighlightsAndSave();
 
@@ -36,16 +45,48 @@ public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioR
                 .setReadLocatorListener(this)
                 .setOnClosedListener(this);
 
+        this.context = context;
+        setPageHandler(messenger);
     }
 
     public void open(String bookPath){
+
+        ReadLocator readLocator = getLastReadLocator();
+
         Config config = AppUtil.getSavedConfig(context);
         if (config == null)
             config = new Config();
         config.setAllowedDirection(Config.AllowedDirection.VERTICAL_AND_HORIZONTAL);
-
+        config.setThemeColorInt(0xfffdd82c);
+        folioReader.setReadLocator(readLocator);
         folioReader.setConfig(config, true)
                 .openBook(bookPath);
+
+    }
+
+    public void close(){
+        folioReader.close();
+    }
+
+    private void setPageHandler(BinaryMessenger messenger){
+
+        new EventChannel(messenger,PAGE_CHANNEL).setStreamHandler(new EventChannel.StreamHandler() {
+            @Override
+            public void onListen(Object o, EventChannel.EventSink eventSink) {
+                pageEventSink = eventSink;
+            }
+
+            @Override
+            public void onCancel(Object o) {
+
+            }
+        });
+    }
+
+    private ReadLocator getLastReadLocator() {
+
+        String jsonString = loadAssetTextAsString("Locators/LastReadLocators/last_read_locator_1.json");
+        return ReadLocator.fromJson(jsonString);
     }
 
     private void getHighlightsAndSave() {
@@ -94,13 +135,13 @@ public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioR
             }
             return buf.toString();
         } catch (IOException e) {
-            Log.e("HomeActivity", "Error opening asset " + name);
+            Log.e("Reader", "Error opening asset " + name);
         } finally {
             if (in != null) {
                 try {
                     in.close();
                 } catch (IOException e) {
-                    Log.e("HomeActivity", "Error closing asset " + name);
+                    Log.e("Reader", "Error closing asset " + name);
                 }
             }
         }
@@ -119,7 +160,14 @@ public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioR
 
     @Override
     public void saveReadLocator(ReadLocator readLocator) {
+        Log.e("readLocator","readLocator path:"+readLocator.getLocations().getXpath());
+        Log.e("readLocator","readLocator positoin:"+readLocator.getLocations().getPosition());
+        Log.e("readLocator","readLocator progress:"+readLocator.getLocations().getProgression());
+        Log.e("readLocator","readLocator id:"+readLocator.getLocations().getId());
 
+        if (pageEventSink != null){
+            pageEventSink.success(readLocator.getLocations().getXpath());
+        }
     }
 
 
