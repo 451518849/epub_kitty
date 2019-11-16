@@ -1,8 +1,8 @@
 name: epub_kitty
 description: A epub flutter plugin project.
 version: 0.0.3
-author:
-homepage:
+author: xiaofwang <jasonwang451518849@gmail.com>
+homepage: https://github.com/451518849/epub_kitty
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
