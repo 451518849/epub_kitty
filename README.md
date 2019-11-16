@@ -1,4 +1,4 @@
-# epub_reader
+# epub_kitty
 
 ![](https://img.shields.io/badge/build-passing-brightgreen)
 ![](https://img.shields.io/badge/version-0.0.1-orange)
@@ -9,7 +9,7 @@
 ![](2.jpeg)
 
 
-epub_reader是款epub电子书阅读器，是对开源框架[folioreader](https://folioreader.github.io/FolioReaderKit/)的封装。
+epub_kitty是款epub电子书阅读器，是对开源框架[folioreader](https://folioreader.github.io/FolioReaderKit/)的封装。
 
 
 

@@ -1,6 +1,6 @@
 PODS:
   - AEXML (4.3.3)
-  - epub_reader (0.0.1):
+  - epub_kitty (0.0.1):
     - AEXML (= 4.3.3)
     - Flutter
     - FontBlaster (= 4.1.0)
@@ -22,7 +22,7 @@ PODS:
   - ZFDragableModalTransition (0.6)
 
 DEPENDENCIES:
-  - epub_reader (from `.symlinks/plugins/epub_reader/ios`)
+  - epub_kitty (from `.symlinks/plugins/epub_kitty/ios`)
   - Flutter (from `.symlinks/flutter/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
 
@@ -37,8 +37,8 @@ SPEC REPOS:
     - ZFDragableModalTransition
 
 EXTERNAL SOURCES:
-  epub_reader:
-    :path: ".symlinks/plugins/epub_reader/ios"
+  epub_kitty:
+    :path: ".symlinks/plugins/epub_kitty/ios"
   Flutter:
     :path: ".symlinks/flutter/ios"
   path_provider:
@@ -46,7 +46,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AEXML: 601f41fcaa7bda7605cad153b0f43db9ec006c0f
-  epub_reader: a06a5548c286472f73abfb9e5c32b049cfe66dbe
+  epub_kitty: ef3fee411ccc8ca0fb07811420e226119d2e1693
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FontBlaster: 127aa66419478d1c62926c7fdb39841633344a45
   MenuItemKit: 0f850e630b0a3d2bd80fec54db87ce0d2077ada2
@@ -56,6 +56,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 14401ade5f8e82aba1ff03e9f88e9de60937ae60
   ZFDragableModalTransition: 0d294eaaba6edfcb9839595de765f9ca06a4b524
 
-PODFILE CHECKSUM: 943721edf8f242b30385be0d0f29a66842ba45ee
+PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
 
 COCOAPODS: 1.7.5

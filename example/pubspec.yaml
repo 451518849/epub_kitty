@@ -1,5 +1,5 @@
-name: epub_reader_example
-description: Demonstrates how to use the epub_reader plugin.
+name: epub_kitty_example
+description: Demonstrates how to use the epub_kitty plugin.
 publish_to: 'none'
 
 environment:
@@ -17,10 +17,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  epub_reader:
+  epub_kitty:
     path: ../
-    
+
   path_provider: ^1.4.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

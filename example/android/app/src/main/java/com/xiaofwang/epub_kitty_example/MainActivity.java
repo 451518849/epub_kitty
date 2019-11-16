@@ -1,4 +1,4 @@
-package com.example.epub_reader_example;
+package com.xiaofwang.epub_kitty_example;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

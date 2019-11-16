@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:epub_reader/epub_reader.dart';
+import 'package:epub_kitty/epub_kitty.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() => runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
+  static const pageChannel = const EventChannel('com.xiaofwang.epub_kitty/page');
 
   @override
   void initState() {
@@ -32,12 +32,12 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: GestureDetector(
             onTap: () async {
-              Directory appDocDir = await getApplicationDocumentsDirectory();
+              Directory appDocDir = await getTemporaryDirectory();
               print(appDocDir.path);
 
               String iosBookPath = '${appDocDir.path}/3.epub';
               String androidBookPath = 'file:///android_asset/PhysicsSyllabus.epub';
-              EpubReader.open(androidBookPath);
+              EpubKitty.open(iosBookPath);
 
               pageChannel.receiveBroadcastStream().listen((Object event) {
                 print('page:$event');

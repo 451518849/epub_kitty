@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 
-class EpubReader {
+class EpubKitty{
   static const MethodChannel _channel =
-      const MethodChannel('epub_reader');
+      const MethodChannel('epub_kitty');
 
   static Future<String> open(String bookPath) async {
     Map<String,dynamic> agrs = {

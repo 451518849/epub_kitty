@@ -1,6 +1,6 @@
-# epub_reader_example
+# epub_kitty_example
 
-Demonstrates how to use the epub_reader plugin.
+Demonstrates how to use the epub_kitty plugin.
 
 ## Getting Started
 

@@ -1,4 +1,4 @@
-group 'com.example.epub_reader'
+group 'com.xiaofwang.epub_kitty'
 version '1.0'
 
 buildscript {
@@ -37,4 +37,5 @@ android {
 dependencies {
     implementation "com.folioreader:folioreader:0.5.4"
 }
+
 

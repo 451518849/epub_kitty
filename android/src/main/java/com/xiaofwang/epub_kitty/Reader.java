@@ -1,6 +1,5 @@
-package com.example.epub_reader;
+package com.xiaofwang.epub_kitty;
 
-import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 

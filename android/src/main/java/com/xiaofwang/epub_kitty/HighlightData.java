@@ -1,4 +1,4 @@
-package com.example.epub_reader;
+package com.xiaofwang.epub_kitty;
 
 import com.folioreader.model.HighLight;
 
