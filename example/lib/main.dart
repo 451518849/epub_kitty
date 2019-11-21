@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
 
               String iosBookPath = '${appDocDir.path}/3.epub';
               String androidBookPath = 'file:///android_asset/PhysicsSyllabus.epub';
+              EpubKitty.setConfig("iosBook", "#32a852","vertical",true);
               EpubKitty.open(iosBookPath);
 
               pageChannel.receiveBroadcastStream().listen((Object event) {
