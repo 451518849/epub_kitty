@@ -27,6 +27,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioReader.OnClosedListener{
 
+    private ReaderConfig readerConfig;
     public FolioReader folioReader;
     private Context context;
     public MethodChannel.Result result;
@@ -35,8 +36,9 @@ public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioR
 
     private static final String PAGE_CHANNEL = "com.xiaofwang.epub_reader/page";
 
-    Reader(Context context, BinaryMessenger messenger){
+    Reader(Context context, BinaryMessenger messenger,ReaderConfig config){
 
+        readerConfig = config;
         getHighlightsAndSave();
 
         folioReader = FolioReader.get()
@@ -51,14 +53,8 @@ public class Reader  implements OnHighlightListener, ReadLocatorListener, FolioR
     public void open(String bookPath){
 
         ReadLocator readLocator = getLastReadLocator();
-
-        Config config = AppUtil.getSavedConfig(context);
-        if (config == null)
-            config = new Config();
-        config.setAllowedDirection(Config.AllowedDirection.VERTICAL_AND_HORIZONTAL);
-        config.setThemeColorInt(0xfffdd82c);
         folioReader.setReadLocator(readLocator);
-        folioReader.setConfig(config, true)
+        folioReader.setConfig(readerConfig.config, true)
                 .openBook(bookPath);
 
     }

@@ -1,3 +1,7 @@
+## 0.0.4
+
+* add setConfig method.
+
 ## 0.0.3
 
 * change name to epub_kitty.

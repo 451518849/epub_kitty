@@ -1,7 +1,7 @@
 # epub_kitty
 
 ![](https://img.shields.io/badge/build-passing-brightgreen)
-![](https://img.shields.io/badge/version-0.0.3-orange)
+![](https://img.shields.io/badge/version-0.0.4-orange)
 ![](https://img.shields.io/badge/platform-flutter-lightgrey)
 
 
@@ -10,17 +10,27 @@
 
 
 epub_kitty是款epub电子书阅读器，是对开源框架[folioreader](https://folioreader.github.io/FolioReaderKit/)的封装。
-[epub_kitty 0.0.3](https://pub.dev/packages/epub_kitty)
+[epub_kitty 0.0.4](https://pub.dev/packages/epub_kitty)
 
 ## 安装
 	dependencies:
-	  epub_kitty: ^0.0.3
+	  epub_kitty: ^0.0.4
 
-## 一行代码即可
+## 使用
    
-	   /**
-	   * @bookPath 电子书文档路径
-	   */
+    first step
+    /**
+     * @identifier (android 无效)
+     * @themeColor
+     * @scrollDirection (android 无效)
+     * @allowSharing (android 无效)
+     */
+    EpubKitty.setConfig("book", "#32a852","vertical",true);
+    
+    second step
+	 /**
+	 * @bookPath 电子书文档路径
+	 */
 	EpubReader.open('bookPath');
 	
 	// page channel 用来监听当前页数（仅限ios端）
