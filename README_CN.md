@@ -9,36 +9,35 @@
 ![](2.jpeg)
 
 
-epub_kitty is an epub ebook reader that encapsulates the [folioreader](https://folioreader.github.io/FolioReaderKit/) framework. Epub_kitty 0.0.4
-
+epub_kitty是款epub电子书阅读器，是对开源框架[folioreader](https://folioreader.github.io/FolioReaderKit/)的封装。
 [epub_kitty 0.0.4](https://pub.dev/packages/epub_kitty)
 
-## Install
+## 安装
 	dependencies:
 	  epub_kitty: ^0.0.4
 
-## Use
+## 使用
    
     first step
     /**
-     * @identifier (android useless)
+     * @identifier (android 无效)
      * @themeColor
-     * @scrollDirection (android useless)
-     * @allowSharing (android useless)
+     * @scrollDirection (android 无效)
+     * @allowSharing (android 无效)
      */
     EpubKitty.setConfig("book", "#32a852","vertical",true);
     
     second step
 	 /**
-	 * @bookPath 
+	 * @bookPath 电子书文档路径
 	 */
 	EpubReader.open('bookPath');
 	
-	// page channel used to monitor the current number of pages (only on the ios side)
+	// page channel 用来监听当前页数（仅限ios端）
 	  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
 
-### QQ Communication：
-QQ Number：853797155，Welcome to exchange questions and technologies!
+### QQ技术交流：
+群聊号：853797155，欢迎交流问题和技术！
 
-### Welcome TO PR
+### 欢迎PR
 	
