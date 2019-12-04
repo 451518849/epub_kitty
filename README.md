@@ -13,6 +13,7 @@ epub_kitty is an epub ebook reader that encapsulates the [folioreader](https://f
 
 [epub_kitty 0.0.4](https://pub.dev/packages/epub_kitty)
 
+[中文文档](https://github.com/451518849/epub_kitty/blob/master/README_CN.md)
 ## Install
 	dependencies:
 	  epub_kitty: ^0.0.4
