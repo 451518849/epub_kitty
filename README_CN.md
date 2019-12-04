@@ -34,7 +34,7 @@ epub_kitty是款epub电子书阅读器，是对开源框架[folioreader](https:/
 	EpubReader.open('bookPath');
 	
 	// page channel 用来监听当前页数（仅限ios端）
-	  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
+	  static const pageChannel = const EventChannel('com.xiaofwang.epub_kitty/page');
 
 ### QQ技术交流：
 群聊号：853797155，欢迎交流问题和技术！

@@ -36,7 +36,7 @@ epub_kitty is an epub ebook reader that encapsulates the [folioreader](https://f
 	EpubReader.open('bookPath');
 	
 	// page channel used to monitor the current number of pages (only on the ios side)
-	  static const pageChannel = const EventChannel('com.xiaofwang.epub_reader/page');
+	  static const pageChannel = const EventChannel('com.xiaofwang.epub_kitty/page');
 
 ### QQ Communication：
 QQ Number：853797155，Welcome to exchange questions and technologies!
