@@ -1,3 +1,8 @@
+## 0.1.0
+
+* upgrade flutter version to 12.13
+* fix the problem on androidx in example
+
 ## 0.0.4
 
 * add setConfig method.
