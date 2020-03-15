@@ -15,11 +15,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  static const pageChannel = const EventChannel('com.xiaofwang.epub_kitty/page');
+  static const pageChannel =
+      const EventChannel('com.xiaofwang.epub_kitty/page');
 
   @override
   void initState() {
     super.initState();
+
+    // pageChannel.receiveBroadcastStream('com.xiaofwang.epub_kitty/page').listen(
+    //     (Object event) {
+    //   print('page:$event');
+    // }, onError: null);
   }
 
   @override
@@ -35,14 +41,11 @@ class _MyAppState extends State<MyApp> {
               Directory appDocDir = await getTemporaryDirectory();
               print(appDocDir.path);
 
-              String iosBookPath = '${appDocDir.path}/3.epub';
-              String androidBookPath = 'file:///android_asset/PhysicsSyllabus.epub';
-              EpubKitty.setConfig("iosBook", "#32a852","vertical",true);
+              // String iosBookPath = '${appDocDir.path}/2.epub';
+              String androidBookPath =
+                  'file:///android_asset/PhysicsSyllabus.epub';
+              EpubKitty.setConfig("iosBook", "#32a852", "vertical", true);
               EpubKitty.open(androidBookPath);
-
-              pageChannel.receiveBroadcastStream().listen((Object event) {
-                print('page:$event');
-              }, onError: null);
             },
             child: Container(
               child: Text('open epub'),

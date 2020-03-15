@@ -11,10 +11,13 @@ public class SwiftEpubKittyPlugin: NSObject, FlutterPlugin,FolioReaderPageDelega
     
     var config: EpubConfig?
     
+    
+    //12.13
     public static func register(with registrar: FlutterPluginRegistrar) {
       let channel = FlutterMethodChannel(name: "epub_kitty", binaryMessenger: registrar.messenger())
       let instance = SwiftEpubKittyPlugin()
       
+        print("xxxxxxxxxxxxxxxx");
       pageChannel = FlutterEventChannel.init(name: "com.xiaofwang.epub_reader/page",
                                   binaryMessenger: registrar.messenger());
       

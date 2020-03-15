@@ -231,7 +231,7 @@ extension FolioReader {
             guard let currentPage = self.readerCenter?.currentPage else {
                 return
             }
-
+                
             currentPage.webView?.js("setFontSize('\(currentFontSize.cssIdentifier)')")
         }
     }
