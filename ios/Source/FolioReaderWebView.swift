@@ -31,11 +31,31 @@ open class FolioReaderWebView: WKWebView {
         guard let readerContainer = readerContainer else { return FolioReader() }
         return readerContainer.folioReader
     }
+    
+    fileprivate var webConfig: WKWebViewConfiguration{
+        let config = WKWebViewConfiguration()
+        if #available(iOS 10.0, *) {
+            config.dataDetectorTypes = .link
+        } else {
+            // Fallback on earlier versions
+        }
+        return config
+    }
 
     init(frame: CGRect, readerContainer: FolioReaderContainer) {
         self.readerContainer = readerContainer
-
-        super.init(frame: frame, configuration: WKWebViewConfiguration())
+        let config = WKWebViewConfiguration()
+        if #available(iOS 10.0, *) {
+            config.dataDetectorTypes = .link
+        } else {
+            // Fallback on earlier versions
+        }
+        config.preferences.javaScriptEnabled = true;
+        config.preferences.minimumFontSize = 18
+        config.allowsInlineMediaPlayback = true
+        config.allowsAirPlayForMediaPlayback = true
+        config.allowsPictureInPictureMediaPlayback = true
+        super.init(frame: frame, configuration: config)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -401,6 +421,7 @@ open class FolioReaderWebView: WKWebView {
                     completionHandler!(any as? String)
                 }
             }
+            
 //            guard (any != nil) else {return}
 //            completionHandler!(any as? String)
         }

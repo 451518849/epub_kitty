@@ -348,7 +348,6 @@ extension FolioReader {
             "pageOffsetX": webView.scrollView.contentOffset.x,
             "pageOffsetY": webView.scrollView.contentOffset.y
             ] as [String : Any]
-
         self.savedPositionForCurrentBook = position
     }
 

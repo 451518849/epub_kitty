@@ -41,11 +41,11 @@ class _MyAppState extends State<MyApp> {
               Directory appDocDir = await getTemporaryDirectory();
               print(appDocDir.path);
 
-              // String iosBookPath = '${appDocDir.path}/2.epub';
+              String iosBookPath = '${appDocDir.path}/3.epub';
               String androidBookPath =
                   'file:///android_asset/PhysicsSyllabus.epub';
               EpubKitty.setConfig("iosBook", "#32a852", "vertical", true);
-              EpubKitty.open(androidBookPath);
+              EpubKitty.open(iosBookPath);
             },
             child: Container(
               child: Text('open epub'),

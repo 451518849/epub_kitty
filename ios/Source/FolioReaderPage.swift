@@ -70,7 +70,7 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
         self.readerContainer = FolioReaderContainer(withConfig: FolioReaderConfig(), folioReader: FolioReader(), epubPath: "")
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshPageMode), name: NSNotification.Name(rawValue: "needRefreshPageMode"), object: nil)
     }
 
@@ -81,10 +81,12 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
         if webView == nil {
             webView = FolioReaderWebView(frame: webViewFrame(), readerContainer: readerContainer)
             webView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            webView?.dataDetectorTypes = .link
             webView?.scrollView.showsVerticalScrollIndicator = false
             webView?.scrollView.showsHorizontalScrollIndicator = false
             webView?.backgroundColor = .clear
+            webView?.scrollView.decelerationRate = UIScrollView.DecelerationRate.normal;
+
+
             self.contentView.addSubview(webView!)
         }
         webView?.navigationDelegate = self
@@ -202,11 +204,13 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
            refreshPageMode()
 
            if self.readerConfig.enableTTS && !self.book.hasAudio {
-               webView.js("wrappingSentencesWithinPTags()")
+//               webView.js("wrappingSentencesWithinPTags()")
+            webView.js("wrappingSentencesWithinPTags()") { (result) in
+                if let audioPlayer = self.folioReader.readerAudioPlayer, (audioPlayer.isPlaying() == true) {
+                    audioPlayer.readCurrentSentence()
+                }
+            }
 
-               if let audioPlayer = self.folioReader.readerAudioPlayer, (audioPlayer.isPlaying() == true) {
-                   audioPlayer.readCurrentSentence()
-               }
            }
 
            let direction: ScrollDirection = self.folioReader.needsRTLChange ? .positive(withConfiguration: self.readerConfig) : .negative(withConfiguration: self.readerConfig)
@@ -221,6 +225,7 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
                webView.isColors = false
                self.webView?.createMenu(options: false)
            })
+
 
            delegate?.pageDidLoad?(self)
     }
@@ -250,7 +255,7 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
             let href = chapter?.href ?? ""
             self.folioReader.readerAudioPlayer?.playAudio(href, fragmentID: playID)
 
-            } else if scheme == "file" {
+        } else if scheme == "file" {
 
                 let anchorFromURL = url.fragment
 
@@ -266,6 +271,7 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
 
                     // Return to avoid crash
                     if (splitedPath.count <= 1 || splitedPath[1].isEmpty) {
+                        return
                     }
 
                     let href = splitedPath[1].trimmingCharacters(in: CharacterSet(charactersIn: "/"))
@@ -277,7 +283,9 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
                             handleAnchor(anchorFromURL!, avoidBeginningAnchors: false, animated: true)
                         }
                     } else {
+                        
                         self.folioReader.readerCenter?.changePageWith(href: href, animated: true)
+
                     }
                 }
 
@@ -352,7 +360,7 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
             }
             return true
         }
-        return false
+        return true
     }
 
     @objc open func handleTapGesture(_ recognizer: UITapGestureRecognizer) {
@@ -363,19 +371,22 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
             
             webView?.js("getSelectedText()", completionHandler: { (selected) in
                 
-            })
-//            guard (selected == nil || selected?.isEmpty == true) else {
-//                return
-//            }
-
-            let delay = 0.4 * Double(NSEC_PER_SEC) // 0.4 seconds * nanoseconds per seconds
-            let dispatchTime = (DispatchTime.now() + (Double(Int64(delay)) / Double(NSEC_PER_SEC)))
-            
-            DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
-                if (self.shouldShowBar == true && self.menuIsVisible == false) {
-                    self.folioReader.readerCenter?.toggleBars()
+                guard (selected == nil || selected?.isEmpty == true) else {
+                    return
                 }
+                
+                let delay = 0.4 * Double(NSEC_PER_SEC) // 0.4 seconds * nanoseconds per seconds
+                let dispatchTime = (DispatchTime.now() + (Double(Int64(delay)) / Double(NSEC_PER_SEC)))
+                
+                DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+                    if (self.shouldShowBar == true && self.menuIsVisible == false) {
+                        self.folioReader.readerCenter?.toggleBars()
+                    }
+                })
             })
+
+
+
         } else if (self.readerConfig.shouldHideNavigationOnTap == true) {
             self.folioReader.readerCenter?.hideBars()
             self.menuIsVisible = false
@@ -462,11 +473,6 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
 //        }
 
          webView?.js("getAnchorOffset('\(anchor)', \(horizontal.description))", completionHandler:completionHandler)
-//        webView?.js("getAnchorOffset('\(anchor)', \(horizontal.description))", completionHandler: { (result) in
-//            let strOffset = result {
-//                return CGFloat((strOffset as NSString).floatValue)
-//            }
-//        })
         
 //        return CGFloat(0)
     }
@@ -548,9 +554,9 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
      - returns: The result of running the JavaScript script passed in the script parameter, or nil if the script fails.
      */
     open func performJavaScript(_ javaScriptCode: String) -> String? {
-//        webView?.evaluateJavaScript(javaScriptCode, completionHandler: { (any, error) in
-//
-//        })
+        webView?.evaluateJavaScript(javaScriptCode, completionHandler: { (any, error) in
+
+        })
 //        webView?.js(javaScriptCode, completionHandler: { (any, error) in
 //            return any
 //        })
