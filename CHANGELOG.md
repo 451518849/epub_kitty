@@ -1,3 +1,7 @@
+## 0.1.5
+
+* replace UIWebView by WKWebview in iOS
+
 ## 0.1.0
 
 * upgrade flutter version to 12.13

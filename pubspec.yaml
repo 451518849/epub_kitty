@@ -1,11 +1,7 @@
 name: epub_kitty
 description: 
-  'epub_kitty is an epub ebook reader that encapsulates the folioreader framework. 
-  It supports iOS and android, but is customizable on iOS. 
-  It is very easy to use, you just need to set up the configuration file can open the ebook, very convenient.
-  However, it is not yet highly customizable on android.
-  But he has been able to meet daily needs.'
-version: 0.1.0
+  'epub_kitty is an epub ebook reader that encapsulates the folioreader framework.'
+version: 0.1.5
 homepage: https://github.com/451518849/epub_kitty
 
 environment:

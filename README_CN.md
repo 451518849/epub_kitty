@@ -1,7 +1,7 @@
 # epub_kitty
 
 ![](https://img.shields.io/badge/build-passing-brightgreen)
-![](https://img.shields.io/badge/version-0.0.4-orange)
+![](https://img.shields.io/badge/version-0.1.5-orange)
 ![](https://img.shields.io/badge/platform-flutter-lightgrey)
 
 
@@ -14,7 +14,7 @@ epub_kitty是款epub电子书阅读器，是对开源框架[folioreader](https:/
 
 ## 安装
 	dependencies:
-	  epub_kitty: ^0.0.4
+	  epub_kitty: ^0.1.5
 
 ## 使用
    
