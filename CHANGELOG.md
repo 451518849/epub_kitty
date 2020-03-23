@@ -1,3 +1,7 @@
+## 0.1.6
+
+* fixed iOS epub cash
+
 ## 0.1.5
 
 * replace UIWebView by WKWebview in iOS
