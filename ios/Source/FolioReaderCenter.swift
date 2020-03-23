@@ -479,7 +479,7 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
         
         let toInject = "\n\(metaTag)\n\(cssTag)\n\(jsTag)\n</head>"
         html = html.replacingOccurrences(of: "</head>", with: toInject)
-
+                
         // Font class name
         var classes = folioReader.currentFont.cssIdentifier
         classes += " " + folioReader.currentMediaOverlayStyle.className()
@@ -498,8 +498,8 @@ open class FolioReaderCenter: UIViewController, UICollectionViewDelegate, UIColl
         if let modifiedHtmlContent = self.delegate?.htmlContentForPage?(cell, htmlContent: html) {
             html = modifiedHtmlContent
         }
-
-        cell.loadHTMLString(html, baseURL: URL(fileURLWithPath: resource.fullHref.deletingLastPathComponent))
+        
+        cell.loadHTMLString(title: resource.fullHref.lastPathComponent, htmlContent:html, baseURL: URL(fileURLWithPath: resource.fullHref.deletingLastPathComponent))
         return cell
     }
 

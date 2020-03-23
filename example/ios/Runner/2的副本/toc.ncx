@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="zho">
+  <head>
+    <meta content="0d51478b-52a5-46e1-aa2f-523a9b5720ba" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="calibre (2.0.0)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>阿里传：这是阿里巴巴的世界</text>
+  </docTitle>
+  <navMap>
+    <navPoint class="chapter" id="num_1" playOrder="1">
+      <navLabel>
+        <text>阿里传</text>
+      </navLabel>
+      <content src="index_split_000.html"/>
+      <navPoint class="chapter" id="num_2" playOrder="2">
+        <navLabel>
+          <text>扉页</text>
+        </navLabel>
+        <content src="index_split_001.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_3" playOrder="3">
+        <navLabel>
+          <text>版权页</text>
+        </navLabel>
+        <content src="index_split_002.html#filepos3895"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_4" playOrder="4">
+        <navLabel>
+          <text>目录</text>
+        </navLabel>
+        <content src="index_split_003.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_5" playOrder="5">
+        <navLabel>
+          <text>中文版序言</text>
+        </navLabel>
+        <content src="index_split_004.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_6" playOrder="6">
+        <navLabel>
+          <text>写在前面</text>
+        </navLabel>
+        <content src="index_split_005.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_7" playOrder="7">
+        <navLabel>
+          <text>前言</text>
+        </navLabel>
+        <content src="index_split_006.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_8" playOrder="8">
+        <navLabel>
+          <text>第一章 为什么是马云？</text>
+        </navLabel>
+        <content src="index_split_007.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_9" playOrder="9">
+        <navLabel>
+          <text>第二章 从大繁荣到大萧条</text>
+        </navLabel>
+        <content src="index_split_008.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_10" playOrder="10">
+        <navLabel>
+          <text>第三章 东方智慧+西方运营</text>
+        </navLabel>
+        <content src="index_split_009.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_11" playOrder="11">
+        <navLabel>
+          <text>第四章 走近阿里巴巴</text>
+        </navLabel>
+        <content src="index_split_010.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_12" playOrder="12">
+        <navLabel>
+          <text>第五章 只有3名听众的演讲</text>
+        </navLabel>
+        <content src="index_split_011.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_13" playOrder="13">
+        <navLabel>
+          <text>第六章 阿里巴巴的飞毯也会下坠</text>
+        </navLabel>
+        <content src="index_split_012.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_14" playOrder="14">
+        <navLabel>
+          <text>第七章 如果连马云都失去了信心</text>
+        </navLabel>
+        <content src="index_split_013.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_15" playOrder="15">
+        <navLabel>
+          <text>第八章 做最后站着的人</text>
+        </navLabel>
+        <content src="index_split_014.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_16" playOrder="16">
+        <navLabel>
+          <text>第九章 因SARS被隔离的日子</text>
+        </navLabel>
+        <content src="index_split_015.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_17" playOrder="17">
+        <navLabel>
+          <text>第十章 和eBay PK</text>
+        </navLabel>
+        <content src="index_split_016.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_18" playOrder="18">
+        <navLabel>
+          <text>第十一章 与谷歌双子会面</text>
+        </navLabel>
+        <content src="index_split_017.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_19" playOrder="19">
+        <navLabel>
+          <text>第十二章 做世界上最大的电子商务网站</text>
+        </navLabel>
+        <content src="index_split_018.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_20" playOrder="20">
+        <navLabel>
+          <text>第十三章 eBay未曾预料的棋局</text>
+        </navLabel>
+        <content src="index_split_019.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_21" playOrder="21">
+        <navLabel>
+          <text>第十四章 剧情反转：收购雅虎中国</text>
+        </navLabel>
+        <content src="index_split_020.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_22" playOrder="22">
+        <navLabel>
+          <text>第十五章 轰动世界的交易</text>
+        </navLabel>
+        <content src="index_split_021.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_23" playOrder="23">
+        <navLabel>
+          <text>第十六章和百度的搜索引擎之战</text>
+        </navLabel>
+        <content src="index_split_022.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_24" playOrder="24">
+        <navLabel>
+          <text>第十七章 免费是不是商业模式？</text>
+        </navLabel>
+        <content src="index_split_023.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_25" playOrder="25">
+        <navLabel>
+          <text>第十八章 阿里狂潮：在香港上市</text>
+        </navLabel>
+        <content src="index_split_024.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_26" playOrder="26">
+        <navLabel>
+          <text>第十九章 别了，阿里巴巴</text>
+        </navLabel>
+        <content src="index_split_025.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_27" playOrder="27">
+        <navLabel>
+          <text>第二十章 寒冬来袭：如何应对丑闻？</text>
+        </navLabel>
+        <content src="index_split_026.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_28" playOrder="28">
+        <navLabel>
+          <text>第二十一章 今天很难，明天更难，后天会很美好</text>
+        </navLabel>
+        <content src="index_split_027.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_29" playOrder="29">
+        <navLabel>
+          <text>第二十二章 阿里巴巴：对创新最好的诠释</text>
+        </navLabel>
+        <content src="index_split_028.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_30" playOrder="30">
+        <navLabel>
+          <text>第二十三章 在阿里巴巴学到的40堂课</text>
+        </navLabel>
+        <content src="index_split_029.html"/>
+      </navPoint>
+      <navPoint class="chapter" id="num_31" playOrder="31">
+        <navLabel>
+          <text>注释</text>
+        </navLabel>
+        <content src="index_split_030.html"/>
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

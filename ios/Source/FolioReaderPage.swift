@@ -142,13 +142,32 @@ open class FolioReaderPage: UICollectionViewCell, WKNavigationDelegate, UIGestur
         )
     }
 
-    func loadHTMLString(_ htmlContent: String!, baseURL: URL!) {
-        // Insert the stored highlights to the HTML
-        let tempHtmlContent = htmlContentWithInsertHighlights(htmlContent)
-        // Load the html into the webview
-        webView?.alpha = 0
-        webView?.loadHTMLString(tempHtmlContent, baseURL: baseURL)
-    }
+    
+        func loadHTMLString(title: String!,htmlContent: String!, baseURL: URL!) {
+            // Insert the stored highlights to the HTML
+            let tempHtmlContent = htmlContentWithInsertHighlights(htmlContent)
+            // Load the html into the webview
+            webView?.alpha = 0
+    //           webView?.loadHTMLString(tempHtmlContent, baseURL: baseURL)
+            
+            let tempPath = baseURL.path
+            let filePath = tempPath + "/" + title
+            
+            if title.contains("xhtml") {
+                let htmlData = NSString(string: tempHtmlContent).data(using: String.Encoding.utf8.rawValue)
+                let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+                        NSAttributedString.DocumentType.rtfd]
+
+                let attributedString = try? NSMutableAttributedString(data: htmlData ?? Data(),options: options,documentAttributes: nil)
+                try! attributedString?.string.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+
+            }else {
+                try! tempHtmlContent.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+            }
+
+            webView?.loadFileURL(URL(fileURLWithPath: filePath), allowingReadAccessTo:URL(fileURLWithPath: baseURL.path.deletingLastPathComponent))
+}
+
 
     // MARK: - Highlights
 

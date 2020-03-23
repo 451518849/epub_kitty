@@ -12,6 +12,9 @@ import UIKit
 // MARK: - Internal constants
 
 internal let kApplicationDocumentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+internal let kApplicationCacheDirectory = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
+internal let kEpubFileDirectory = "com.xiaofa.epub_kitty"
+
 internal let kCurrentFontFamily = "com.folioreader.kCurrentFontFamily"
 internal let kCurrentFontSize = "com.folioreader.kCurrentFontSize"
 internal let kCurrentAudioRate = "com.folioreader.kCurrentAudioRate"

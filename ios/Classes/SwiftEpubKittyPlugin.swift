@@ -17,7 +17,6 @@ public class SwiftEpubKittyPlugin: NSObject, FlutterPlugin,FolioReaderPageDelega
       let channel = FlutterMethodChannel(name: "epub_kitty", binaryMessenger: registrar.messenger())
       let instance = SwiftEpubKittyPlugin()
       
-        print("xxxxxxxxxxxxxxxx");
       pageChannel = FlutterEventChannel.init(name: "com.xiaofwang.epub_reader/page",
                                   binaryMessenger: registrar.messenger());
       
@@ -75,7 +74,8 @@ public class SwiftEpubKittyPlugin: NSObject, FlutterPlugin,FolioReaderPageDelega
           }
 
           let readerVc = UIApplication.shared.keyWindow!.rootViewController ?? UIViewController()
-          
+
+
         folioReader.presentReader(parentViewController: readerVc, withEpubPath: epubPath, andConfig: self.config!.config, shouldRemoveEpub: false)
           folioReader.readerCenter?.pageDelegate = self
       }

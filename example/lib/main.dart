@@ -38,10 +38,10 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: GestureDetector(
             onTap: () async {
-              Directory appDocDir = await getTemporaryDirectory();
-              print(appDocDir.path);
+              Directory appDocDir = await getApplicationDocumentsDirectory();
+              print('$appDocDir');
 
-              String iosBookPath = '${appDocDir.path}/3.epub';
+              String iosBookPath = '${appDocDir.path}/epub/4.epub';
               String androidBookPath =
                   'file:///android_asset/PhysicsSyllabus.epub';
               EpubKitty.setConfig("iosBook", "#32a852", "vertical", true);
@@ -56,3 +56,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+//path:file:///var/mobile/Containers/Data/Application/BF0BEEFE-31BC-4989-B779-6517EE275336/Documents/3.epub/OEBPS/cover.xhtml

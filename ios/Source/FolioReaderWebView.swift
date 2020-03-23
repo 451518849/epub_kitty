@@ -50,11 +50,14 @@ open class FolioReaderWebView: WKWebView {
         } else {
             // Fallback on earlier versions
         }
-        config.preferences.javaScriptEnabled = true;
+        config.preferences.javaScriptEnabled = true
+        config.suppressesIncrementalRendering = true
         config.preferences.minimumFontSize = 18
+        config.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
         config.allowsInlineMediaPlayback = true
         config.allowsAirPlayForMediaPlayback = true
         config.allowsPictureInPictureMediaPlayback = true
+        
         super.init(frame: frame, configuration: config)
     }
 
