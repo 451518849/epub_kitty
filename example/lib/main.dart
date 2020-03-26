@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
               Directory appDocDir = await getApplicationDocumentsDirectory();
               print('$appDocDir');
 
-              String iosBookPath = '${appDocDir.path}/epub/4.epub';
+              String iosBookPath = '${appDocDir.path}/4.epub';
               String androidBookPath =
                   'file:///android_asset/PhysicsSyllabus.epub';
               EpubKitty.setConfig("iosBook", "#32a852", "vertical", true);

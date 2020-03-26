@@ -1,6 +1,6 @@
 ## 0.1.6
 
-* fixed iOS epub cash
+* fixed iOS epub crash
 
 ## 0.1.5
 
