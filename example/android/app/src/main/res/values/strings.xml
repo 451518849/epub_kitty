@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="电子书">FolioReader</string>
+    <string name="FolioReader">电子书</string>
     <string name="direction_vertical">上下滑动</string>
     <string name="direction_horizontal">左右滑动</string>
     <string name="contents">目录</string>
@@ -9,5 +9,4 @@
     <string name="share">分享</string>
     <string name="define">查询</string>
     <string name="highlight">笔记</string>
-
 </resources>
