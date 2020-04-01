@@ -1,7 +1,6 @@
 import Flutter
 import UIKit
-import RealmSwift
-import Realm
+import epub_kitty_ios
 
 public class SwiftEpubKittyPlugin: NSObject, FlutterPlugin,FolioReaderPageDelegate,FlutterStreamHandler {
     
