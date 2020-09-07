@@ -14,12 +14,14 @@ class EpubConfig: NSObject {
     
     open var tintColor: UIColor = UIColor.init(rgba:"#fdd82c")
     open var allowSharing: Bool = false
+    open var shouldHideNavigationOnTap: Bool = false
     open var scrollDirection: FolioReaderScrollDirection = FolioReaderScrollDirection.vertical
     
-    init(Identifier: String,tintColor: String, allowSharing: Bool,scrollDirection: String) {
+    init(Identifier: String,tintColor: String, allowSharing: Bool, shouldHideNavigationOnTap: Bool, scrollDirection: String) {
         self.config = FolioReaderConfig(withIdentifier: Identifier)
         self.tintColor = UIColor.init(rgba: tintColor)
         self.allowSharing = allowSharing
+        self.shouldHideNavigationOnTap = shouldHideNavigationOnTap
         if scrollDirection == "vertical"{
             self.config.scrollDirection = FolioReaderScrollDirection.vertical
         }else {
@@ -32,9 +34,10 @@ class EpubConfig: NSObject {
     }
     
     private func readerConfiguration() {
-        self.config.shouldHideNavigationOnTap = true
+        self.config.shouldHideNavigationOnTap = false
         self.config.scrollDirection = self.scrollDirection
         self.config.enableTTS = false
+        self.config.hideBars = false
         self.config.displayTitle = true
         self.config.allowSharing = self.allowSharing
         self.config.tintColor = self.tintColor
