@@ -28,8 +28,9 @@ epub_kitty is an epub ebook reader that encapsulates the [folioreader](https://f
      * @themeColor
      * @scrollDirection (android useless)
      * @allowSharing (android useless)
+     * @shouldHideNavigationOnTap (android useless)
      */
-    EpubKitty.setConfig("book", "#32a852","vertical",true);
+    EpubKitty.setConfig("book", "#32a852","vertical",true, shouldHideNavigationOnTap:false);
     
     second step
 	 /**

@@ -5,7 +5,7 @@ version: 0.1.7
 homepage: https://github.com/451518849/epub_kitty
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:
