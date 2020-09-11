@@ -1,9 +1,9 @@
 PODS:
   - AEXML (4.3.3)
   - epub_kitty (0.1.7):
-    - epub_kitty_ios_lib (= 0.1.0)
+    - epub_kitty_ios_lib (= 0.1.1)
     - Flutter
-  - epub_kitty_ios_lib (0.1.0):
+  - epub_kitty_ios_lib (0.1.1):
     - AEXML (= 4.3.3)
     - FontBlaster (= 4.1.0)
     - MenuItemKit (= 3.1.3)

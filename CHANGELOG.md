@@ -1,7 +1,12 @@
+## 0.1.8
+
+* fixed some bugs
+
 ## 0.1.7
 
 * iOS support ipad full-screen
 * change android default language to en and fixed some bugs
+
 
 ## 0.1.6
 

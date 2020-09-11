@@ -1,8 +1,8 @@
 name: epub_kitty
 description: 
   'epub_kitty is an epub ebook reader that encapsulates the folioreader framework.'
-version: 0.1.7
-homepage: https://github.com/451518849/epub_kitty
+version: 0.1.8
+homepage: https://github.com/zfinix/epub_kitty
 
 environment:
   sdk: ">=2.8.0 <3.0.0"
