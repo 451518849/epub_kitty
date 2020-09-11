@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A new flutter plugin project.
                        DESC
-  s.homepage         = 'https://github.com/451518849/epub_kitty.git'
+  s.homepage         = 'https://github.com/zfinix/epub_kitty.git'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'xiaofwang' => '451518849@qq.com' }
+  s.author           = { 'Chiziaruhoma' => 'chiziaruhoma@gmail.com' }
   s.source           = { :path => '.' }
   
   
@@ -20,7 +20,7 @@ A new flutter plugin project.
 
   s.dependency 'Flutter'
   
-  s.dependency 'epub_kitty_ios', '0.1.0'
+  s.dependency 'epub_kitty_ios_lib', '0.1.0'
   s.ios.deployment_target = '9.0'
 
   
