@@ -1,8 +1,8 @@
 # epub_kitty_lib
 
 ![badge](https://img.shields.io/badge/build-passing-brightgreen)
-![badge](https://img.shields.io/badge/version-0.1.7-orange)
-![badge](https://img.shields.io/badge/platform-flutter-lightgrey)
+![badge](https://img.shields.io/badge/version-1.0.2-green)
+![badge](https://img.shields.io/badge/platform-flutter-blue)
 
 ![1](1.jpeg)
 
@@ -16,8 +16,10 @@ epub_kitty_lib is an epub ebook reader that encapsulates the [folioreader](https
 
 ## Install
 
+  ```yaml
   dependencies:
-    epub_kitty_lib: ^1.0.2
+    epub_kitty_lib: ^1.0.4
+  ```
 
 ## Simple Use
 
@@ -34,7 +36,7 @@ epub_kitty_lib is an epub ebook reader that encapsulates the [folioreader](https
     EpubKitty.setConfig("book", "#32a852","vertical",true, shouldHideNavigationOnTap:false);
 ```
 
-  second step
+  Second Step
 
  ```dart
   ///
