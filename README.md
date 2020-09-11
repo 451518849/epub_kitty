@@ -21,7 +21,9 @@ epub_kitty_lib is an epub ebook reader that encapsulates the [folioreader](https
 
 ## Simple Use
 
-    first step
+  first step
+
+  ```dart
     ///
     // @identifier (android useless)
     // @themeColor
@@ -30,14 +32,18 @@ epub_kitty_lib is an epub ebook reader that encapsulates the [folioreader](https
     // @shouldHideNavigationOnTap (android useless)
     ///
     EpubKitty.setConfig("book", "#32a852","vertical",true, shouldHideNavigationOnTap:false);
-    
-    second step
+```
+
+  second step
+
+ ```dart
   ///
   // @bookPath
   ///
   EpubReader.open('bookPath');
   // page channel used to monitor the current number of pages (only on the ios side)
   static const pageChannel = const EventChannel('com.epub_kitty_lib/page');
+```
 
 ### Welcome TO PR
 
