@@ -1,3 +1,7 @@
+## 1.0.5
+
+* Bump up epub_kitty_ios_lib to 1.0.2
+  
 ## 1.0.4
 
 * Minor bug fixes

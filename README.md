@@ -18,7 +18,7 @@ epub_kitty_lib is an epub ebook reader that encapsulates the [folioreader](https
 
   ```yaml
   dependencies:
-    epub_kitty_lib: ^1.0.4
+    epub_kitty_lib: ^1.0.5
   ```
 
 ## Simple Use

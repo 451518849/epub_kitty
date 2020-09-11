@@ -1,7 +1,7 @@
 name: epub_kitty_lib
 description: 
   'epub_kitty_lib is an ePub eBook reader that encapsulates the Folioreader Framework.'
-version: 1.0.4
+version: 1.0.5
 homepage: https://github.com/zfinix/epub_kitty
 
 environment:
