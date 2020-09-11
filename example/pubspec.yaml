@@ -1,5 +1,5 @@
 name: epub_kitty_example
-description: Demonstrates how to use the epub_kitty plugin.
+description: Demonstrates how to use the epub_kitty_lib plugin.
 publish_to: 'none'
 
 environment:
@@ -17,7 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  epub_kitty:
+  epub_kitty_lib:
     path: ../
 
   path_provider: ^1.4.0
