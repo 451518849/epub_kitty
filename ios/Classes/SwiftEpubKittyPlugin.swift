@@ -1,6 +1,6 @@
 import Flutter
 import UIKit
-import epub_kitty_ios
+import epub_kitty_ios_lib
 
 public class SwiftEpubKittyPlugin: NSObject, FlutterPlugin,FolioReaderPageDelegate,FlutterStreamHandler {
     
