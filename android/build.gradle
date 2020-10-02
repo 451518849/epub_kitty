@@ -1,4 +1,4 @@
-group 'com.xiaofwang.epub_kitty'
+group 'com.epub_kitty_lib'
 version '1.0'
 
 buildscript {

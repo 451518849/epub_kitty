@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import epub_kitty_ios
+import epub_kitty_ios_lib
 
 class EpubConfig: NSObject {
     
