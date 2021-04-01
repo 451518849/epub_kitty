@@ -1,0 +1,32 @@
+name: epub_kitty_lib
+description: 
+  'epub_kitty_lib is an ePub eBook reader that encapsulates the Folioreader Framework.'
+version: 2.0.0
+homepage: https://github.com/zfinix/epub_kitty
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.10.0 <2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.epub_kitty_lib
+        pluginClass: EpubKittyPlugin
+      ios:
+        pluginClass: EpubKittyPlugin
+     
+ 
